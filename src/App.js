@@ -6,8 +6,8 @@ import BottomRow from "./BottomRow";
 function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
   
-  let [lionScore, setLionScore] = useState(0);
-  let [tigerScore, setTigerScore] = useState(0);
+  const [lionScore, setLionScore] = useState(0);
+  const [tigerScore, setTigerScore] = useState(0);
   
 
   // touchdown is 7, field goal is 3
@@ -48,14 +48,14 @@ function App() {
       <section className="buttons">
         <div className="homeButtons">
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button onClick={() => setLionScore(lionScore += 7)} className="homeButtons__touchdown">Home Touchdown</button>
-          <button onClick={() => setLionScore(lionScore += 3)} className="homeButtons__fieldGoal">Home Field Goal</button>
+          <button onClick={() => setLionScore(lionScore + 7)} className="homeButtons__touchdown">Home Touchdown</button>
+          <button onClick={() => setLionScore(lionScore + 3)} className="homeButtons__fieldGoal">Home Field Goal</button>
         </div>
-        <button onClick={() => setLionScore(lionScore = 0)} className="homeButtons__fieldGoal">Reset</button>
+        <button onClick={() => {setLionScore(0); setTigerScore(0)}} className="homeButtons__fieldGoal">Reset</button>
         {/* how do i get resets in one button? */}
         <div className="awayButtons">
-          <button onClick={() => setTigerScore(tigerScore += 7)} className="awayButtons__touchdown">Away Touchdown</button>
-          <button onClick={() => setTigerScore(tigerScore += 3)} className="awayButtons__fieldGoal">Away Field Goal</button>
+          <button onClick={() => setTigerScore(tigerScore + 7)} className="awayButtons__touchdown">Away Touchdown</button>
+          <button onClick={() => setTigerScore(tigerScore + 3)} className="awayButtons__fieldGoal">Away Field Goal</button>
         </div>
       </section>
     </div>
